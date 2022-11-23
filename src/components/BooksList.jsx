@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Container, Form, FormControl, Row } from "react-bootstrap";
-import History from "../assets/fantasy.json";
+import Fantasy from "../assets/fantasy.json";
 import SingleBook from "./SingleBook";
 
 class BookList extends Component {
@@ -21,7 +21,7 @@ class BookList extends Component {
           />
         </Form>
         <Row>
-          {History.filter((book) =>
+          {Fantasy.filter((book) =>
             book.title.toLowerCase().includes(this.state.searchQuery)
           ).map((book) => (
             <SingleBook
@@ -33,7 +33,7 @@ class BookList extends Component {
           ))}
         </Row>
         <Row>
-          {History.slice(0, 20).map((book) => (
+          {Fantasy.slice(0, 20).map((book) => (
             <SingleBook
               Cardimg={book.img}
               Cardtitle={book.title}
