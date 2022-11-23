@@ -1,7 +1,11 @@
-import SingleBook from "./SingleBook";
+/* import { Component } from "react";
 
-const BooksList = () => {
-  <SingleBook />;
-};
+class BooksList extends Component {
+    render() {
+        return (
 
-export default BooksList;
+        )
+
+        
+    }
+} */

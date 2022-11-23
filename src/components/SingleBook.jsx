@@ -1,4 +1,4 @@
-import { Card, Container, Row, Col } from "react-bootstrap";
+import { Card, Container, Row, Col, Form } from "react-bootstrap";
 import { Component } from "react";
 import books from "../assets/fantasy.json";
 class SingleBook extends Component {
@@ -6,6 +6,15 @@ class SingleBook extends Component {
     return (
       <Container>
         <h2>Fantasy books</h2>
+        <Form>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Search</Form.Label>
+            <Form.Control type="email" placeholder="Type here" />
+            <Form.Text className="text-muted">
+              Type here to search a book
+            </Form.Text>
+          </Form.Group>
+        </Form>
         <Row>
           {books.map((book) => (
             <Col>

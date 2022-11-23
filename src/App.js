@@ -12,7 +12,7 @@ function App() {
       <WariningSign atext="Alert-san" />
       <MyBadge badgetext="7" badgecolor="danger" />
       <SingleBook />
-      <BooksList />
+      
     </div>
   );
 }
