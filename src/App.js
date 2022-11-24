@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import WarningSign from "./components/WarningSign";
 import MyBadge from "./components/MyBadge";
 import books from "./assets/fantasy.json";
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import BooksList from "./components/BooksList";
 
 function App() {
