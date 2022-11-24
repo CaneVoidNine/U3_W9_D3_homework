@@ -1,16 +1,22 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import WarningSign from "./components/WarningSign";
 import MyBadge from "./components/MyBadge";
-import WariningSign from "./components/WarningSign";
-
+import books from "./assets/fantasy.json";
+import { Container, Row } from "react-bootstrap";
 import BooksList from "./components/BooksList";
 
 function App() {
   return (
-    <div className="App">
-      <WariningSign atext="Alert-san" />
-      <MyBadge badgetext="7" badgecolor="danger" />
-      <BooksList />
+    <div>
+      <Container>
+        <WarningSign atext="Alert-san have mercy" />
+        <div>
+          <MyBadge badgetext="9" badgecolor="danger" />
+        </div>
+
+        <BooksList books={books} />
+      </Container>
     </div>
   );
 }

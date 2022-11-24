@@ -1,50 +1,30 @@
-import { Component } from "react";
-import { Container, Form, FormControl, Row } from "react-bootstrap";
-import Fantasy from "../assets/fantasy.json";
 import SingleBook from "./SingleBook";
+import { Component } from "react";
+import filterBookList from "../utilities/filterBookList";
 
-class BookList extends Component {
+class BooksList extends Component {
   state = {
-    searchQuery: "",
+    filteredBooks: this.props.books,
+  };
+
+  handleOnChange = (e) => {
+    const filteredBooks = filterBookList(e.target.value, this.props.books);
+    this.setState({ filteredBooks });
   };
 
   render() {
+    const list = this.state.filteredBooks.map((book) => (
+      <SingleBook book={book} key={book.asin} />
+    ));
+
     return (
-      <Container fluid>
-        <Form className="d-flex w-20 text-center">
-          <FormControl
-            type="search"
-            placeholder="Search for Books"
-            className="mr-2 mb-3"
-            aria-label="Search"
-            onChange={(e) => this.setState({ searchQuery: e.target.value })}
-          />
-        </Form>
-        <Row>
-          {Fantasy.filter((book) =>
-            book.title.toLowerCase().includes(this.state.searchQuery)
-          ).map((book) => (
-            <SingleBook
-              Cardimg={book.img}
-              Cardtitle={book.title}
-              Cardtext={book.category}
-              key={book.asin}
-            />
-          ))}
-        </Row>
-        <Row>
-          {Fantasy.slice(0, 20).map((book) => (
-            <SingleBook
-              Cardimg={book.img}
-              Cardtitle={book.title}
-              Cardtext={book.category}
-              key={book.asin}
-            />
-          ))}
-        </Row>
-      </Container>
+      <>
+        <input className="mb-3" onChange={this.handleOnChange}></input>
+
+        {list}
+      </>
     );
   }
 }
 
-export default BookList;
+export default BooksList;
